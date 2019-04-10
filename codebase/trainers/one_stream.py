@@ -1,5 +1,5 @@
 from datetime import datetime
-from codebase.trainers import build_accuracy
+from utils import build_accuracy
 
 import tempfile
 import tensorflow as tf
