@@ -39,11 +39,7 @@ def _read_acoustic_image(filename):
 def _read_raw_audio_data(audio_sample_file):
     print('{} - Reading {}'.format(datetime.now(), audio_sample_file))
 
-    with open(audio_sample_file) as fid:
-        audio_data_sample = np.fromfile(fid, np.int32).reshape((_NUMBER_OF_MICS, _NUMBER_OF_SAMPLES), order='F')
-        audio_data_sample[_BROKEN_MICS_IDX, :] = 0
-        audio_data_sample = audio_data_sample[0:1, :]
-
+    audio_data_sample = np.load(audio_sample_file)
     audio_serialized = audio_data_sample.tostring()
 
     return Audio(mics=audio_data_sample.shape[0], samples=audio_data_sample.shape[1], data=audio_serialized)
@@ -103,7 +99,7 @@ if __name__ == '__main__':
         data_raw_video_dir = data_mat_dir.replace(root_dir, root_raw_dir).replace('MFCC_Image', 'video')
 
         num_mat_files = len([name for name in os.listdir(data_mat_dir) if name.endswith('.mat')])
-        num_raw_audio_files = len([name for name in os.listdir(data_raw_audio_dir) if name.endswith('.dc')])
+        num_raw_audio_files = len([name for name in os.listdir(data_raw_audio_dir) if name.endswith('.npy')])
         num_raw_video_files = len([name for name in os.listdir(data_raw_video_dir) if name.endswith('.jpeg')])
 
         # Ensure there are the same number of acoustic images and raw audio and video files
@@ -123,7 +119,7 @@ if __name__ == '__main__':
 
             # Repeat until meeting minimum length of 30 seconds
             if include_audio_data:
-                raw_audio_files = ['{}/A_{:06d}.dc'.format(data_raw_audio_dir, index % num_raw_audio_files + 1) for index in range(start_index, start_index + num_samples)]
+                raw_audio_files = ['{}/A_{:06d}.npy'.format(data_raw_audio_dir, index % num_raw_audio_files + 1) for index in range(start_index, start_index + num_samples)]
                 audio_data = [_read_raw_audio_data(filename) for filename in raw_audio_files]
             else:
                 audio_data = None
