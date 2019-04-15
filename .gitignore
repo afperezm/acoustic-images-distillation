@@ -1,3 +1,6 @@
 .idea/
 *.pyc
 numpy
+dataset
+tensorboard
+checkpoints
