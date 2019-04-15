@@ -5,7 +5,7 @@ setup(
     version='0.0.1',
     packages=['codebase'],
     install_requires=['librosa', 'numpy', 'tensorflow-gpu==1.4.0', 'torchfile'],
-    url='https://gitlab.iit.it/aperez/dualcam-net',
+    url='https://gitlab.iit.it/aperez/acoustic-images-distillation',
     license='',
     author='Andres Perez',
     author_email='andres.perez@iit.it',
