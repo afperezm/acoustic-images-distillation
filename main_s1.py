@@ -39,7 +39,7 @@ FLAGS = flags.FLAGS
 
 def main(_):
     # Instantiate logger
-    logger = Logger('{}/{}'.format(FLAGS.log_dir, FLAGS.exp_name))
+    logger = Logger(FLAGS.log_dir, FLAGS.exp_name)
 
     # Create data loaders according to the received program arguments
     print('{}: {} - Creating data loaders'.format(datetime.now(), FLAGS.exp_name))

@@ -4,9 +4,10 @@ import tensorflow as tf
 
 class Logger(object):
 
-    def __init__(self, log_dir):
+    def __init__(self, log_dir, exp_name):
 
         self.__log_dir = tempfile.mkdtemp() if log_dir is None or not tf.gfile.Exists(log_dir) else log_dir
+        self.__log_dir = '{}/{}'.format(log_dir, exp_name)
         self.summary_op = None
         self.__summary_inputs = []
         self.__file_writer = tf.summary.FileWriter(self.__log_dir)

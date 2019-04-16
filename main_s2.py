@@ -39,7 +39,7 @@ slim = tf.contrib.slim
 
 def main(_):
     # Instantiate logger
-    logger = Logger('{}/{}'.format(FLAGS.log_dir, FLAGS.exp_name))
+    logger = Logger(FLAGS.log_dir, FLAGS.exp_name)
 
     # Create training and validation data loaders
     print('{}: {} - Creating data loaders'.format(datetime.now(), FLAGS.exp_name))
