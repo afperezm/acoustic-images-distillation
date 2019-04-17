@@ -91,9 +91,8 @@ if __name__ == '__main__':
 
         splitted_data_dir = data_mat_dir.split('/')
         location = int(filter(re.compile('Location_.*').match, splitted_data_dir)[0].split('_')[1])
-        subject = filter(re.compile('0[1-9]_.*').match, splitted_data_dir)[0]
-        subject_idx = int(subject.split('_')[0])
-        action = int(filter(re.compile('data_.*').match, splitted_data_dir)[0].split('_')[1])
+        subject = int(filter(re.compile('Subject_.*').match, splitted_data_dir)[0].split('_')[1])
+        action = int(filter(re.compile('Action_.*').match, splitted_data_dir)[0].split('_')[1])
 
         data_raw_audio_dir = data_mat_dir.replace(root_dir, root_raw_dir).replace('MFCC_Image', 'audio')
         data_raw_video_dir = data_mat_dir.replace(root_dir, root_raw_dir).replace('MFCC_Image', 'video')
@@ -131,7 +130,7 @@ if __name__ == '__main__':
             else:
                 video_images = None
 
-            out_data_dir = '{}/Location_{:0>2d}/Subject_{:0>2d}/Action_{:0>3d}/'.format(out_dir, location, subject_idx,
+            out_data_dir = '{}/Location_{:0>2d}/Subject_{:0>2d}/Action_{:0>3d}/'.format(out_dir, location, subject,
                                                                                         action + 1)
             out_filename = '{}/Data_{:0>3d}.tfrecord'.format(out_data_dir, idx + 1)
 
@@ -145,7 +144,7 @@ if __name__ == '__main__':
                 feature = {
                     'action': _int64_feature(action),
                     'location': _int64_feature(location - 1),
-                    'subject': _int64_feature(subject_idx - 1)
+                    'subject': _int64_feature(subject - 1)
                 }
                 if include_audio_images:
                     feature.update({
