@@ -1,6 +1,6 @@
 This repository contains code for the paper:
- 
-Audio-Visual Model Distillation Using Acoustic Images. arXiv, 2019.
+
+Audio-Visual Model Distillation Using Acoustic Images. [arXiv, 2019](https://arxiv.org/abs/1904.07933).
 
 ## Requirements
 
