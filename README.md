@@ -143,3 +143,21 @@ $ find ./ -name "*.txt"
 ./10_seconds_location_1/lists/training.txt
 ./10_seconds_location_1/lists/dataset.txt
 ```
+
+## Pre-trained Models
+
+Some of our teacher and student models are fine-tuned from pre-trained versions. We thus need to download them and place
+them in an appropriate folder as follows:
+
+```shell
+# location where checkpoints are stored
+CKPTS_DIR='./checkpoints/'
+
+# Download and uncompress SoundNet 5-layers pre-trained model
+wget -N http://data.csail.mit.edu/soundnet/soundnet_models_public.zip -P "$CKPTS_DIR"
+unzip -jo "$CKPTS_DIR/soundnet_models_public.zip" 'soundnet_models_public/soundnet5_final.t7' -d "$CKPTS_DIR/soundnet/"
+
+# Download and uncompress ResNet-50 pre-trained model
+wget -N http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz -P "$CKPTS_DIR"
+tar -xvf "$CKPTS_DIR/resnet_v1_50_2016_08_28.tar.gz" -C "$CKPTS_DIR/resnet/"
+```
