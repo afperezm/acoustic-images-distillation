@@ -24,7 +24,7 @@ _IMAGE_SIZE = vgg.vgg_16.default_image_size
 
 class ActionsDataLoader(object):
 
-    def __init__(self, txt_file, mode, batch_size, sample_rate=22050, total_length=30, sample_length=5,
+    def __init__(self, txt_file, mode, batch_size, sample_rate=22050, total_length=10, sample_length=5,
                  number_of_crops=6, buffer_size=1, num_epochs=1, shuffle=False, normalize=False,
                  random_pick=False, build_spectrogram=False, modalities=None):
 
