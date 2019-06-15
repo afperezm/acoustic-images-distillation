@@ -70,6 +70,7 @@ $ find ./ -name "*.tfrecord" | sort
 These files represent the full dataset sharded over 30 files per location-subject-action combination. The mapping from
 location and action labels to class names is as follows:
 
+```
 Location_01: anechoic chamber
 Location_02: open space office
 Location_03: outdoor terrace
@@ -88,6 +89,7 @@ Action_011: paper ripping
 Action_012: plastic crumpling
 Action_013: paper shaking
 Action_014: stick dropping
+```
 
 Finally we need to split the dataset, to do so we use the `generate_lists.py` utility script to generate some plain text
 list files with the files for each split. We split files in three modes, 0: training, validation and test. 1: training and
