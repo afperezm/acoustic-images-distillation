@@ -4,7 +4,7 @@ setup(
     name='codebase',
     version='0.0.1',
     packages=['codebase'],
-    install_requires=['librosa', 'numpy', 'tensorflow-gpu==1.4.0', 'torchfile'],
+    install_requires=['librosa', 'numpy', 'tensorflow-gpu==2.6.4', 'torchfile'],
     url='https://gitlab.iit.it/aperez/acoustic-images-distillation',
     license='',
     author='Andres Perez',
