@@ -23,7 +23,7 @@ We provide several scripts and a package with all the necessary code for trainin
 ## Preparing the dataset
 
 First we need to download the dataset from the
-[project's website](https://pavis.iit.it/datasets/audio-visually-indicated-actions-dataset) following the instructions
+[project's website](https://www.iit.it/web/pattern-analysis-and-computer-vision/audio-visually-indicated-actions-dataset) following the instructions
 described therein. The dataset is delivered as a single compressed zip file.
 
 Once downloaded and decompressed, the data has to be converted into TensorFlow's native
